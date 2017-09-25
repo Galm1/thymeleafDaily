@@ -6,25 +6,23 @@
 </head>
 <body>
 <h1>Create a New Student</h1>
-<!-- Add a form to post to /create_student url.
-     Add an inputs for first name, last name and grade.
-     Use thymeleaf to access the grades that were added to the model in the
-      controller to show in the <select> pulldown list -->
-`   <form action="/create_student" method="post">
+   <form action="/create_student" method="post">
     <table>
         <tr>
             <td>First Name:</td>
-            <td><span th:text="${firstName}"></span></td>
+            <td><input type="text" name="first-name"/></td>
         </tr>
         <tr>
             <td>Last Name:</td>
-            <td><span th:text="${lastName}"></span></td>
+            <td><input type="text" name="last-name"/></td>
         </tr>
         <tr>
             <td>Grade:</td>
             <td>
                 <select name="grade">
-                    <span th:text="${grade}"></span>
+                    <option th:each="grade : ${grades}"
+                            th:value="${grade}"
+                            th:text="${grade}"></option>
                 </select>
             </td>
         </tr>
